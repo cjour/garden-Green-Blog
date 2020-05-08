@@ -1,0 +1,86 @@
+body {
+
+    padding-top: 180px;
+    background-image: url('pics/alaskaRoad.jpeg');
+}
+
+.btn-green {
+
+    background-color:#3E8914 !important
+}
+
+h1 a{
+    font-family: cursive;
+    font-size:4.5em;
+}
+
+ul li {
+
+    list-style: none;
+}
+
+#titleArticleH2{
+
+    
+    font-family: 'Long Cang', cursive;
+}
+
+h2 em {
+
+    font-size: .5em;
+}
+
+.Btn_link {
+
+    color:#FFFFFF !important
+}
+
+.Btn_link:hover {
+
+    color:#FFFFFF;
+    text-decoration:none;
+}
+
+.encart {
+
+    margin:2em;
+    border-radius: 0.5em;
+    padding:3em;
+	position: relative;
+	box-shadow: 5px 4px 5px 4px #CCCCCC;
+}
+
+.encart:hover {
+
+    box-shadow: 14px 12px 14px 12px #CCCCCC;
+}
+
+.comment_encart {
+
+    background-color:#dcefef;
+    border-radius: 2em;
+    
+}
+p strong {
+
+    color: #004e64;
+}
+
+#text_area_commentaire {
+
+    border: thick;
+
+}
+
+.comment_encart h3 {
+
+    font-size: 1.5em;
+    color: #004e64;
+}
+
+.thumbnailPic{
+
+    width : 100px;
+    height : auto;
+
+}
