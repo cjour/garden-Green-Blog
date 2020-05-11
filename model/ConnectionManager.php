@@ -1,5 +1,7 @@
 <?php
 namespace Blog;
+use \PDO;
+
 
 class ConnectionManager extends Manager {
 
