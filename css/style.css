@@ -4,9 +4,47 @@ body {
     background-image: url('pics/alaskaRoad.jpeg');
 }
 
-.btn-green {
+#logo {
 
-    background-color:#3E8914 !important
+    height:75px;
+    width:auto;
+}
+
+#welcome_message {
+
+    font-size: 2em;
+    margin-bottom: 2em;
+    text-align: center;
+    
+
+}
+.encart_heading {
+    background-color: #3DA35D;
+    padding:.5em;
+    border-radius: .5em;
+
+}
+
+.btn-rounded {
+
+    border : .5em solid #3DA35D;
+    border-radius: 0 2em 2em 0;
+    background-color:  #3DA35D;
+    color:#FFFFFF;
+    padding: .5em;
+
+}
+
+.input-rounded {
+    
+    border : .5em solid #3DA35D;
+    padding: .5em;
+    border-radius: 2em 0 0 2em;
+}
+
+.no-margin {
+
+    margin: 0 !important
 }
 
 h1 a{
@@ -32,7 +70,7 @@ h2 em {
 
 .Btn_link {
 
-    color:#FFFFFF !important
+    color:#FFFFFF;
 }
 
 .Btn_link:hover {

@@ -1,5 +1,6 @@
 <?php
-require_once('model/Manager.php');
+namespace Blog;
+
 class CommentManager extends Manager{
     
     public $_limit;

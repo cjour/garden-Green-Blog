@@ -1,6 +1,6 @@
- <?php
+<?php
+namespace Blog;
 
-require_once('model/Manager.php');
 class PostManager extends Manager{
 
 

@@ -18,7 +18,9 @@ ob_start();
             <label for="pseudo">Pseudo :</label>
             <input type="text" name="pseudo" value="<?= $info['pseudo'] ?>"><br><br>
             <label for="email">Email :</label>
-            <input type="text" name="email" value="<?= $info['email'] ?>">
+            <input type="text" name="email" value="<?= $info['email'] ?>"><br><br>
+            <label for="email">Ville :</label>
+            <input type="text" name="ville" value="<?= $info['ville'] ?>">
         </div>
     <?php } ?>
 

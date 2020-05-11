@@ -87,8 +87,8 @@ ob_start();
                     </div>
                 </div>
             </div>
-            <?php if($_SESSION['statut'] == 1){ ?>
-                <?php if($comment['signaled_comments'] == 0){?>
+            <?php if($_SESSION['statut'] == 1){ 
+                    if($comment['signaled_comments'] == 0){?>
 
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#signaledBackdrop<?=$comment['id']?>">Signaler le commentaire</button>          
 

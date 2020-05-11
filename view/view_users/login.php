@@ -10,7 +10,7 @@ ob_start();
         <input class="form-control mb-4 mt-4" type="text" name= "Pseudo" placeholder="Pseudo" required>
         <input class="form-control mb-4" type="password" name= "Password" placeholder="Password" required>
 
-        <button type="submit" class="btn btn-info">Log in</button>
+        <button type="submit" class="btn btn-success">Log in</button>
               
     </form>
     

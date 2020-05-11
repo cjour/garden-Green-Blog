@@ -1,4 +1,5 @@
 <?php
+namespace Blog;
 
 class ProfilManager extends Manager {
 
@@ -9,7 +10,6 @@ class ProfilManager extends Manager {
         $req->execute(array($pseudo));
         return $req;
     }
-
 
     public function updateProfilPic($img, $pseudo){
 

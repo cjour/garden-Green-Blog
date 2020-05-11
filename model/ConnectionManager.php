@@ -1,5 +1,6 @@
 <?php
-require_once('model/Manager.php');
+namespace Blog;
+
 class ConnectionManager extends Manager {
 
     public function LogIn($Pseudo, $Password){
@@ -63,8 +64,4 @@ class ConnectionManager extends Manager {
         return $profilInfo;
     }
 
-    public function updateMyProfil(){
-
-
-    }
 }

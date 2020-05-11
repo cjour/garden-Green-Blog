@@ -10,7 +10,7 @@
         <input class="form-control mb-4" type="password" name= "Password" placeholder="Password" required> 
         <input class="form-control mb-4" type="password" name= "PasswordConfirm" placeholder="Confirm your password" required>
 
-        <button type="submit" class="btn btn-info">Sign in</button>
+        <button type="submit" class="btn btn-success">Sign in</button>
     
             
     </form>

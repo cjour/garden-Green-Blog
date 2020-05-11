@@ -1,10 +1,10 @@
 <?php
-
-require_once('model/PostManager.php');
-require_once('model/CommentManager.php');
-require_once('model/ConnectionManager.php');
-require_once('model/ProfilManager.php');
-
+require dirname("Project 5-DWJ"). '/vendor/autoload.php';
+use Blog\ProfilManager;
+use Blog\CommentManager;
+use Blog\ConnectionManager;
+use Blog\Manager;
+use Blog\PostManager;
 
 function signMeIn(){
 
@@ -111,6 +111,7 @@ function write(){
 function publish($article, $title, $headingString){
 
     $postManager = new PostManager();
+    $headings = $postManager->getExistingHeading();
     $idHeading = $postManager->getIdHeading($headingString);
     $postManager->publishPost($article, $title, $idHeading);
     $posts = $postManager->getPosts();
@@ -146,6 +147,7 @@ function delete($postId){
 
     $postManager = new PostManager();
     $commentManager = new CommentManager();
+    $headings = $postManager->getExistingHeading();
     $posts = $postManager->deletePost($_GET['id']);
     $posts = $postManager->getPosts();
     require('view/view_users/indexView.php');
@@ -164,6 +166,15 @@ function moderateComments(){
     $commentManager = new CommentManager();
     $comments = $commentManager->getSignaledComments();
     require('view/view_users/commentManagementView.php');
+}
+
+function deleteCommentFromDashboard($commentId) {
+
+    $commentManager = new CommentManager();
+    $comment = $commentManager->deleteComment($commentId);
+    $comments = $commentManager->getSignaledComments();
+    header('Location:index.php?action=moderateComments&page=1');
+
 }
 
 function signalComment($commentId, $postId){

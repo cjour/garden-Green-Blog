@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'controller/frontend.php'; 
+require 'controller/frontend.php';
 try {
     
     if (isset($_GET['action'])){
@@ -86,6 +86,7 @@ try {
 
                     throw new Exception ("Pas de page commentaire valide envoyée.");
                 }
+
             } else {
 
                 throw new Exception ("Pas de post correspondant");
@@ -197,7 +198,7 @@ try {
                     } else {
                         listMyPosts();
                     } //loggedIn admin users fonctionnality
-                } else if ($_SESSION['statut'] === 2){
+                } else if ($_SESSION['statut'] === 2) {
                     if(isset($_GET['action'])){
                         if ($_GET['action'] == 'writeAPost'){  
                             write();   
@@ -252,7 +253,7 @@ try {
                                 throw new Exception ("aucun identifiant de commentaire envoyé via l'URL");
                             }
                         } else if ($_GET['action'] == 'moderateComments') {
-    
+                            
                             moderateComments();
                             
                         } else if ($_GET['action'] == 'unsignalComment') {
@@ -264,6 +265,14 @@ try {
                                 throw new Exception ("aucun identifiant de commentaire envoyé via l'URL");
                             }
                             
+                        } else if (($_GET['action'] == 'deleteCommentFromDashboard')){
+                            if (isset($_GET['id']) && $_GET['id'] > 0){
+                                $commentId = $_GET['id'];
+                                deleteCommentFromDashboard($commentId);
+                            } else {
+                
+                                throw new Exception ("aucun identifiant de commentaire envoyé via l'URL");
+                            }
                         } else if ($_GET['action'] == 'addHeadingView'){
                             
                              addHeadingView();
@@ -284,16 +293,19 @@ try {
                     } else {
 
                         listMyPosts();
-                } 
+                    } 
 
                 }
             }
+
         } else {
 
         listMyPosts();
 
         }
+
     } else {
+
         listMyPosts();
     }
 

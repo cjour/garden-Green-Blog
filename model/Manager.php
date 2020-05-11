@@ -1,4 +1,7 @@
 <?php
+namespace Blog;
+use \PDO;
+
 
 class Manager {
 
