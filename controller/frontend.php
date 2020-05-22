@@ -1,5 +1,5 @@
 <?php
-require dirname("Project 5-DWJ"). '/vendor/autoload.php';
+require dirname("Project 5-DWJ").'/vendor/autoload.php';
 use Blog\ProfilManager;
 use Blog\CommentManager;
 use Blog\ConnectionManager;
@@ -8,7 +8,7 @@ use Blog\PostManager;
 
 function signMeIn(){
 
-    require ('view/view_users/sign_in.php');
+    require 'view/view_users/sign_in.php';
 
 }
 
@@ -16,7 +16,7 @@ function signIn($Pseudo, $Email, $Password, $PasswordConfirm){
 
     $signInManager = new ConnectionManager();
     $signInManager->SignMeIn($Pseudo, $Email, $Password, $PasswordConfirm);
-    require('view/view_users/login.php');
+    require 'view/view_users/login.php';
 
 }
 
@@ -30,7 +30,7 @@ function verifyPseudoAvailability($Pseudo){
 
 function logMeIn(){
 
-    require ('view/view_users/login.php');
+    require 'view/view_users/login.php';
 }
 
 function verifyMyPassword($Pseudo, $Password){
@@ -49,7 +49,7 @@ function logIn($Pseudo, $Password){
     $posts = $postManager->getPosts();
     $headings = $postManager->getExistingHeading();
 
-    require ('view/view_users/indexView.php');
+    require 'view/view_users/indexView.php';
 }
 
 function listMyPostsFiltered($rubrique){
@@ -58,7 +58,7 @@ function listMyPostsFiltered($rubrique){
     $headings = $postManager->getExistingHeading();
     $posts = $postManager->getPostsWithHeading($rubrique);
 
-    require('view/view_users/indexView.php');
+    require 'view/view_users/indexView.php';
 }
 
 function listMyPosts(){
@@ -67,7 +67,7 @@ function listMyPosts(){
     $posts = $postManager->getPosts();
     $headings = $postManager->getExistingHeading();
 
-    require('view/view_users/indexView.php');
+    require 'view/view_users/indexView.php';
 }
 
 function logout(){
@@ -86,7 +86,7 @@ function getAPost(){
     $totalNumberOfComments = $commentManager->getTotalComments($_GET['id']);
 
     
-    require('view/view_users/postView.php');
+    require 'view/view_users/postView.php';
 }
 
 function addAComment($postId, $id_auteur, $commentaire){
@@ -105,7 +105,9 @@ function addAComment($postId, $id_auteur, $commentaire){
 
 function write(){
 
-    require('view\view_users\backend_interface_posts_management.php');
+    $postManager = new PostManager();
+    $headings = $postManager->getExistingHeading();
+    require 'view\view_users\backend_interface_posts_management.php';
 }
 
 function publish($article, $title, $headingString){
@@ -115,14 +117,14 @@ function publish($article, $title, $headingString){
     $idHeading = $postManager->getIdHeading($headingString);
     $postManager->publishPost($article, $title, $idHeading);
     $posts = $postManager->getPosts();
-    require('view/view_users/indexView.php');
+    require 'view/view_users/indexView.php';
 }
 
 function read($postId){
 
     $postManager = new PostManager();
     $posts = $postManager->getPosts($_GET['id']);
-    require('view\view_users\indexView.php');
+    require 'view\view_users\indexView.php';
 
 }
 
@@ -131,7 +133,8 @@ function update($postId){
     $postManager = new PostManager();
     $post = $postManager->getPost($postId);
     $heading = $postManager->getSpecificHeading($postId);
-    require('view\view_users\backend_interface_posts_management.php');
+    $headings = $postManager->getExistingHeading();
+    require 'view\view_users\backend_interface_posts_management.php';
 }
 
 function updatePost($article, $title, $postId, $headingString){
@@ -139,8 +142,9 @@ function updatePost($article, $title, $postId, $headingString){
     $postManager = new PostManager();
     $post = $postManager->getPost($postId);
     $idHeading = $postManager->getIdHeading($headingString);
+    $headings = $postManager->getExistingHeading();
     $postManager->updatePost($article, $title, $postId, $idHeading);
-    require('view\view_users\backend_interface_posts_management.php');
+    require 'view\view_users\backend_interface_posts_management.php';
 }
 
 function delete($postId){
@@ -150,7 +154,7 @@ function delete($postId){
     $headings = $postManager->getExistingHeading();
     $posts = $postManager->deletePost($_GET['id']);
     $posts = $postManager->getPosts();
-    require('view/view_users/indexView.php');
+    require 'view/view_users/indexView.php';
 }
 
 function deleteComment($commentId, $postId){
@@ -165,7 +169,7 @@ function moderateComments(){
 
     $commentManager = new CommentManager();
     $comments = $commentManager->getSignaledComments();
-    require('view/view_users/commentManagementView.php');
+    require 'view/view_users/commentManagementView.php';
 }
 
 function deleteCommentFromDashboard($commentId) {
@@ -188,14 +192,14 @@ function unsignalComment($commentId){
 
     $commentManager = new CommentManager();
     $commentManager->unsignalComment($commentId);
-    header('Location:index.php?action=moderateComments');
+    header('Location:index.php?action=moderateComments&page=1');
 }
 
 function getUserProfil($pseudo){
 
     $profilManager = new ProfilManager();
     $profilInfo = $profilManager->getMyProfil($pseudo);
-    require ('view/view_users/profilView.php');
+    require 'view/view_users/profilView.php';
 }
 
 function updateProfil($img, $pseudo){
@@ -217,7 +221,7 @@ function addHeadingView(){
     
     $PostManager = new PostManager();
     $heading = $PostManager->getExistingHeading();
-    require ('view/view_users/newHeadingView.php');
+    require 'view/view_users/newHeadingView.php';
 
 }
 

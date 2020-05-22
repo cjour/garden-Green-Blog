@@ -1,27 +1,46 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+    //data verification
+    document.getElementById('submit_sign_in').style.disabled=true;
 
-    document.getElementById('city-select').addEventListener('change', e =>  {
 
-        let city_choice = e.target.value;
-        let weatherCall = new Ajax ('http://api.openweathermap.org/data/2.5/forecast?q=' + city_choice + '&appid=9eedc7a19623f06e74d60ff417bebccc&lang=fr&units=metric');
-        weatherCall.ajaxGet(renderWeatherInfoForUser);
+    document.getElementById('pass').addEventListener('input', e => {
+        
+        let passVerify = new VerificationData(document.getElementById('pass').value);
+        if(passVerify.PassVerify() === true){
+
+            document.getElementById('pass').style.border ="0.25em solid #28a745";
+            document.getElementById('warningInstruction').style.display = "none";
+
+        } else {
+
+            document.getElementById('pass').style.border ="0.25em solid #dc3545";
+            document.getElementById('warningInstruction').style.display = null;
+
+
+        };
+    });
+
+    document.getElementById('passConfirm').addEventListener('input', e => {
+
+        let passVerify = new VerificationData(document.getElementById('passConfirm').value);
+        if(((document.getElementById('passConfirm').value) === (document.getElementById('pass').value)) && (passVerify.PassVerify() === true)) {
+
+            document.getElementById('passConfirm').style.border ="0.25em solid #28a745";
+            document.getElementById('submit_sign_in').disabled=false;
+
+        } else {
+
+            document.getElementById('passConfirm').style.border ="0.25em solid #dc3545";
+            document.getElementById('submit_sign_in').disabled=true;
+
+            
+
+        }
+
 
     });
 
-    function renderWeatherInfoForUser (reponseAPI){
-
-        console.log(reponseAPI);
-        document.getElementById('city_name').innerHTML = reponseAPI.city.name;
-        document.getElementById('weather_icon').src = "http://openweathermap.org/img/wn/" + reponseAPI.list[0].weather[0].icon + ".png";
-        document.getElementById('weather_description').innerHTML = reponseAPI.list[0].weather[0].description;
-        document.getElementById('weather_temperature_min').innerHTML = reponseAPI.list[0].main.temp_min + " - ";
-        document.getElementById('weather_temperature_max').innerHTML = reponseAPI.list[0].main.temp_max + "°C";
-        let temp = reponseAPI.list[0].main.temp_min;
-
-             
-        
-        
-    }
+    
     
 });

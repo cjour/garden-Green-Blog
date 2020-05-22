@@ -1,13 +1,37 @@
 body {
 
     padding-top: 180px;
-    background-image: url('pics/alaskaRoad.jpeg');
 }
 
 #logo {
 
     height:75px;
     width:auto;
+}
+
+#warningInstruction{
+
+    position :relative;
+    padding:1em;
+    border:thin solid #3DA35D;
+    border-radius: .25em;
+    background-color: #96E072;
+}
+
+#warningInstruction::before {
+
+    content: '';
+    border-bottom: 0.5em solid  #3DA35D;
+    border-left: 0.5em solid transparent;
+    border-right: 0.5em solid transparent;
+    width: 0;
+    height: 0;
+    position:absolute;
+    display: block;
+    top:-10%;
+    left:5%;
+    
+
 }
 
 #welcome_message {
@@ -27,7 +51,7 @@ body {
 
 .btn-rounded {
 
-    border : .5em solid #3DA35D;
+    border : .2em solid #3DA35D;
     border-radius: 0 2em 2em 0;
     background-color:  #3DA35D;
     color:#FFFFFF;
@@ -37,7 +61,7 @@ body {
 
 .input-rounded {
     
-    border : .5em solid #3DA35D;
+    border : .2em solid #3DA35D;
     padding: .5em;
     border-radius: 2em 0 0 2em;
 }
@@ -121,4 +145,9 @@ p strong {
     width : 100px;
     height : auto;
 
+}
+
+#pagination {
+
+    display : flex;
 }

@@ -31,9 +31,9 @@ class ConnectionManager extends Manager {
 
     public function SignMeIn($Pseudo, $Email, $Password, $PasswordConfirm){
  
-            $db = $this->dbConnexion();
-            $req = $db->prepare('INSERT INTO users_login (pseudo, email, password, sign_in_date, id_statut) VALUES (?, ?, ?, NOW(), 1)');
-            $req->execute(array($Pseudo, $Email, password_hash($Password, PASSWORD_DEFAULT)));
+        $db = $this->dbConnexion();
+        $req = $db->prepare('INSERT INTO users_login (pseudo, email, password, sign_in_date, id_statut) VALUES (?, ?, ?, NOW(), 1)');
+        $req->execute(array($Pseudo, $Email, password_hash($Password, PASSWORD_DEFAULT)));
         
     }
 
